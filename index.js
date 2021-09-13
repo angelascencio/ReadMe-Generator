@@ -36,5 +36,21 @@ inquirer
     {
         type: 'list',
         message: 'Choose a license for your project',
-    }
+        name: 'license',
+        choices: ['MIT', 'GNU AGPlv3', 'ISC', 'GNU GPLv3']
+    },
+    {
+        type: 'input',
+        message: 'What is your github username?',
+        name: 'github'
+    },
+    {
+        type: 'input',
+        message: 'What is your email?',
+        name: 'email'
+    },
+       
 ])
+.then((data) => {
+    console.log(data);
+    var md = `# ${data.title}
