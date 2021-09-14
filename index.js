@@ -50,7 +50,36 @@ inquirer
         name: 'email'
     },
        
-])
-.then((data) => {
+]
+.then(function(data) {
     console.log(data);
+
     var md = `# ${data.title}
+
+    ## ${data.description}
+    ![GitHub License](https://img.shields.io/badge/License-${data.license}-yellow.svg)
+    ## Table of Contents
+    [Installation](#installation)
+    [Usage](#usage)
+    [Contributing](#contributing)
+    [Tests](#tests)
+    [License](#license)
+    [Questions](#questions)
+    ## Installation
+    ${data.installation}
+    ## Usage
+    ${data.usage}
+    ## Contributing
+    ${data.contributing}
+    ## Tests
+    ${data.tests}
+    ## License
+    This project is licensed under the terms of the ${data.license} License.
+    ## Questions
+    [Github Profile](https://www.github.com/${data.github})
+    If you have any questions, you may contact me at [${data.email}](mailto:${data.email})`
+    
+      fs.writeFile('readme.md', md, (err) =>
+        err ? console.log(err) : console.log('Success!')
+      );
+    })); 
